@@ -24,8 +24,24 @@ if [ $( docker ps -a | grep env | wc -l) -gt 0 ]; then
 		echo "container is already running attaching..."
 		docker attach env
 	else
-		echo "container already exists starting and attaching..."
-		docker start env -ai
+		echo "You already have a container which is created and bound to a directory."
+		read -p "do you want to reset the container to bind it to a new directory? (y/n)" yn
+		case $yn in
+			[yY] ) echo "resetting container and starting with new directory"
+				docker rm env
+				if [ -z "$PROJECT_DIR" ]
+				then
+					echo "No project path given starting in current directory"
+					PROJECT_DIR=$PWD
+				else
+					PROJECT_DIR=$(cd "$(dirname "$PROJECT_DIR")"; pwd)/$(basename "$PROJECT_DIR")
+				fi
+				docker run -ti --name env -v $PROJECT_DIR:/code -v $HOME/.env:/root dylanderechte/42_dev_env bash
+				;;
+			[nN] ) echo "Stating container without resetting"
+				docker start env -ai
+				;;
+		esac
 	fi
 else
 	echo "starting container"
