@@ -1,4 +1,4 @@
-PS1='\[\e[92m\]➜ 42_dev_env@\[\e[0;1m\]\W \[\e[92;2m\]$(git branch 2>/dev/null | grep '"'"'*'"'"' | colrm 1 2) \[\e[0m\]'
+PS1='\[\e[92m\]➜ \[\e[0;1m\]\W\[\e[38;5;199;2m\]$([[ -n $(git rev-parse --abbrev-ref HEAD 2>/dev/null) ]] && echo " ($(git rev-parse --abbrev-ref HEAD)$(git diff --quiet || echo " ✗"))") \[\e[0;1;38;5;196m\]>> \[\e[0m\]'
 export CODE="/code"
 alias ll='ls -la'
 alias gc="gcc -Werror -Wextra -Wall"
@@ -7,4 +7,11 @@ alias val="valgrind --leak-check=full --track-origins=yes --log-file=valgrid.log
 alias sc="source $HOME/.bashrc"
 alias c="cd $CODE"
 alias q=clear
-\[\033[1;31m\]\u\[\]@\[\]\[\033[38;5;121m\]\h\[\]:\[\]\[\033[38;5;208m\]\W\[\]\$\[\]
+alias gst="git status"
+alias ga="git add"
+alias gcmsg="git commit -m"
+alias gp="git push"
+alias gl="git pull"
+alias gf="git fetch && git merge origin/main"
+export PATH="/root/.local/share/bob/nvim-bin:$PATH"
+. "$HOME/.cargo/env"
