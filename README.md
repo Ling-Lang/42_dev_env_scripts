@@ -23,4 +23,4 @@ run `help` in the docker container to see available aliase
 
 
 
-if any problems occure you can write me on Discord `dylanderechte`
+if any problems occure you can write me on Discord `dylanderechte` or for people from 42 you can reach me on slack under `jkulka`
