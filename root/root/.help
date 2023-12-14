@@ -1,0 +1,13 @@
+help: Show this file .
+ll: This alias lists all files and directories, including hidden ones, in long format.
+gc: This alias compiles C files with gcc, enabling all warnings.
+val: This alias runs valgrind with specific options for memory leak checking and logging.
+sc: This alias sources the .bashrc file, reloading the configuration.
+c: This alias changes the current directory to the one stored in the CODE variable.
+q: This alias clears the terminal screen.
+gst: This alias shows the status of the current git repository.
+ga: This alias adds files to the staging area in git.
+gcmsg: This alias commits changes in git with a message.
+gp: This alias pushes changes to a remote git repository.
+gl: This alias pulls changes from a remote git repository.
+gf: This alias fetches changes from the remote "main" branch and merges them into the current branch.
