@@ -10,14 +10,14 @@ This is a collection of scripts to use my docker dev image.
 
 clone repository  `git clone https://github.com/Ling-Lang/42_dev_env_scripts`
 
-execute install script `chmod u+x install.sh && ./install.sh`
+execute install script `cd 42_dev_env_scripts && chmod u+x install.sh && ./install.sh`
 
 follow instructions on screen
 
 ---
 Before starting container make sure the docker engine is started by using `d_init` or whatever you set your alias to.
 
-after that you can run `d_start`
+Whenever you want to start a docker container navigate to the directory you want the container to be in and run `d_start` or run `d_start` followed by the path of the directory.
 
 run `help` in the docker container to see available aliase
 
