@@ -13,3 +13,5 @@ alias gcmsg="git commit -m"
 alias gp="git push"
 alias gl="git pull"
 alias gf="git fetch && git merge origin/main"
+export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
+neofetch
