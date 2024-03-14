@@ -40,7 +40,7 @@ if [ $( docker ps -a | grep env | wc -l) -gt 0 ]; then
 				else
 					PROJECT_DIR=$(cd "$(dirname "$PROJECT_DIR")"; pwd)/$(basename "$PROJECT_DIR")
 				fi
-				docker run -ti --name env -v $PROJECT_DIR:/code -v $HOME/.env/root:/root dylanderechte/42_dev_env bash
+				docker run -p 42:42 -ti --name env -v $PROJECT_DIR:/code -v $HOME/.env/root:/root dylanderechte/42_dev_env bash
 				;;
 			[nN] ) echo "Stating container without resetting"
 				docker start env -ai
@@ -56,5 +56,5 @@ else
 	else
 		PROJECT_DIR=$(cd "$(dirname "$PROJECT_DIR")"; pwd)/$(basename "$PROJECT_DIR")
 	fi
-	docker run -ti --name env -v $PROJECT_DIR:/code -v $HOME/.env/root:/root dylanderechte/42_dev_env bash
+	docker run -p 42:42 -ti --name env -v $PROJECT_DIR:/code -v $HOME/.env/root:/root dylanderechte/42_dev_env bash
 fi
